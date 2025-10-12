@@ -31,7 +31,7 @@ const About = () => {
   }, []);
 
   return (
-    <section id="about" className="relative py-16 sm:py-20 md:py-24 px-4 sm:px-6 bg-gradient-to-b from-background to-background/95">
+    <section id="about" className="relative py-24 px-6 bg-gradient-to-b from-background to-background/95">
       {/* Grain overlay */}
       <div className="grain-overlay" />
 
@@ -41,13 +41,13 @@ const About = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-10 sm:mb-12 md:mb-16 px-2"
+          className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-foreground mb-4 sm:mb-6">
+          <h2 className="text-5xl md:text-6xl font-serif font-bold text-foreground mb-6">
             A Culinary Journey Through India
           </h2>
-          <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mb-6 sm:mb-8" />
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <div className="w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mb-8" />
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             At CEVI, we celebrate the rich tapestry of Indian cuisine by bringing together the finest flavors from North India, 
             the coastal regions, Bengal, and Continental traditions. Each dish is a testament to our commitment to authenticity, 
             crafted with traditional recipes and presented with a modern flair.
@@ -59,47 +59,47 @@ const About = () => {
           initial={{ opacity: 0 }}
           animate={isVisible ? { opacity: 1 } : {}}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="grid sm:grid-cols-2 gap-4 sm:gap-6 mb-10 sm:mb-12 md:mb-16"
+          className="grid md:grid-cols-2 gap-6 mb-16"
         >
-          <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl group touch-manipulation">
+          <div className="relative overflow-hidden rounded-3xl group">
             <img
               src={grilledKebabPlatter}
               alt="Signature Grilled Kebab Platter"
-              className="w-full h-64 sm:h-80 object-cover transition-transform duration-500 group-hover:scale-110 group-active:scale-105"
+              className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent flex items-end p-4 sm:p-6 md:p-8">
-              <p className="text-lg sm:text-xl font-serif text-foreground">Our Signature Kebabs</p>
+            <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent flex items-end p-8">
+              <p className="text-xl font-serif text-foreground">Our Signature Kebabs</p>
             </div>
           </div>
-          <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl group touch-manipulation">
+          <div className="relative overflow-hidden rounded-3xl group">
             <img
               src={redTandooriDish}
               alt="Authentic Tandoori Specialties"
-              className="w-full h-64 sm:h-80 object-cover transition-transform duration-500 group-hover:scale-110 group-active:scale-105"
+              className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent flex items-end p-4 sm:p-6 md:p-8">
-              <p className="text-lg sm:text-xl font-serif text-foreground">Coastal Delicacies</p>
+            <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent flex items-end p-8">
+              <p className="text-xl font-serif text-foreground">Coastal Delicacies</p>
             </div>
           </div>
         </motion.div>
 
         {/* Info cards */}
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
           {/* Philosophy card */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <Card className="bg-card/50 backdrop-blur-lg border-border/50 hover:border-primary/50 active:border-primary/50 transition-all duration-300 h-full group hover:shadow-gold sm:col-span-2 md:col-span-1 touch-manipulation">
+            <Card className="bg-card/50 backdrop-blur-lg border-border/50 hover:border-primary/50 transition-all duration-300 h-full group hover:shadow-gold">
               <CardHeader>
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-3 sm:mb-4 group-hover:bg-primary/20 transition-colors">
-                  <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                  <Sparkles className="w-6 h-6 text-primary" />
                 </div>
-                <CardTitle className="text-xl sm:text-2xl font-serif text-foreground">Our Philosophy</CardTitle>
+                <CardTitle className="text-2xl font-serif text-foreground">Our Philosophy</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed">
                   "Food for the Senses" isn't just our tagline—it's our promise. Every dish is designed to create 
                   a multisensory experience, from the aromatic spices to the visual presentation, engaging all your senses 
                   in a symphony of flavors.
@@ -114,15 +114,15 @@ const About = () => {
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <Card className="bg-card/50 backdrop-blur-lg border-border/50 hover:border-primary/50 active:border-primary/50 transition-all duration-300 h-full group hover:shadow-gold touch-manipulation">
+            <Card className="bg-card/50 backdrop-blur-lg border-border/50 hover:border-primary/50 transition-all duration-300 h-full group hover:shadow-gold">
               <CardHeader>
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-3 sm:mb-4 group-hover:bg-primary/20 transition-colors">
-                  <Utensils className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                  <Utensils className="w-6 h-6 text-primary" />
                 </div>
-                <CardTitle className="text-xl sm:text-2xl font-serif text-foreground">Signature Dishes</CardTitle>
+                <CardTitle className="text-2xl font-serif text-foreground">Signature Dishes</CardTitle>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-2 text-sm sm:text-base text-muted-foreground">
+                <ul className="space-y-2 text-muted-foreground">
                   <li className="flex items-start">
                     <span className="text-primary mr-2">•</span>
                     <span>Kundapura Sukha Paneer</span>
@@ -158,15 +158,15 @@ const About = () => {
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            <Card className="bg-card/50 backdrop-blur-lg border-border/50 hover:border-primary/50 active:border-primary/50 transition-all duration-300 h-full group hover:shadow-gold sm:col-span-2 md:col-span-1 touch-manipulation">
+            <Card className="bg-card/50 backdrop-blur-lg border-border/50 hover:border-primary/50 transition-all duration-300 h-full group hover:shadow-gold">
               <CardHeader>
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-3 sm:mb-4 group-hover:bg-primary/20 transition-colors">
-                  <Award className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                  <Award className="w-6 h-6 text-primary" />
                 </div>
-                <CardTitle className="text-xl sm:text-2xl font-serif text-foreground">The Experience</CardTitle>
+                <CardTitle className="text-2xl font-serif text-foreground">The Experience</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed">
                   Step into our warm, brick-accented space where subtle lighting creates an intimate atmosphere. 
                   Our modern casual setting perfectly complements the traditional flavors we serve, making CEVI 
                   the ideal destination for both special celebrations and casual dining.
@@ -181,13 +181,13 @@ const About = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-10 sm:mt-12 md:mt-16 text-center px-2"
+          className="mt-16 text-center"
         >
-          <div className="inline-block bg-card/30 backdrop-blur-lg border border-border/50 rounded-2xl p-6 sm:p-8 w-full max-w-2xl">
-            <h3 className="text-xl sm:text-2xl font-serif text-foreground mb-3 sm:mb-4">Visit Us</h3>
-            <p className="text-sm sm:text-base text-muted-foreground mb-1 sm:mb-2">1508, 19th Main, Sector-1, HSR Layout</p>
-            <p className="text-sm sm:text-base text-muted-foreground mb-3 sm:mb-4">Bangalore - 560102</p>
-            <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center text-xs sm:text-sm text-muted-foreground">
+          <div className="inline-block bg-card/30 backdrop-blur-lg border border-border/50 rounded-2xl p-8">
+            <h3 className="text-2xl font-serif text-foreground mb-4">Visit Us</h3>
+            <p className="text-muted-foreground mb-2">1508, 19th Main, Sector-1, HSR Layout</p>
+            <p className="text-muted-foreground mb-4">Bangalore - 560102</p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center text-sm text-muted-foreground">
               <div>
                 <span className="text-primary font-semibold">Lunch:</span> 11:00 AM - 3:30 PM
               </div>
@@ -196,7 +196,7 @@ const About = () => {
                 <span className="text-primary font-semibold">Dinner:</span> 6:30 PM - 10:30 PM
               </div>
             </div>
-            <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-muted-foreground italic">
+            <p className="mt-4 text-sm text-muted-foreground italic">
               Reservations recommended • Walk-ins welcome
             </p>
           </div>
