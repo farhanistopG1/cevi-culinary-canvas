@@ -22,8 +22,8 @@ const Hero = () => {
       {/* Grain overlay */}
       <div className="grain-overlay" />
 
-      {/* Parallax floating images */}
-      <Floating sensitivity={-1} easingFactor={0.05} className="z-0">
+      {/* Parallax floating images - reduced opacity on mobile */}
+      <Floating sensitivity={-1} easingFactor={0.05} className="z-0 hidden md:block">
         <FloatingElement depth={0.5} className="top-[10%] left-[5%] w-48 h-48 md:w-64 md:h-64 opacity-70">
           <motion.img
             src={restaurantExteriorEvening}
@@ -80,14 +80,34 @@ const Hero = () => {
         </FloatingElement>
       </Floating>
 
+      {/* Mobile-optimized background images */}
+      <div className="absolute inset-0 z-0 md:hidden opacity-20">
+        <motion.img
+          src={restaurantExteriorNeon}
+          alt="CEVI Restaurant"
+          className="absolute top-10 right-0 w-40 h-40 object-cover rounded-2xl"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.2 }}
+          transition={{ duration: 0.8 }}
+        />
+        <motion.img
+          src={grilledKebabPlatter}
+          alt="Grilled Kebab Platter"
+          className="absolute bottom-32 left-0 w-36 h-36 object-cover rounded-2xl"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        />
+      </div>
+
       {/* Hero content */}
-      <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
+      <div className="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-7xl md:text-9xl font-serif font-bold text-foreground mb-6 tracking-tight">
+          <h1 className="text-6xl sm:text-7xl md:text-9xl font-serif font-bold text-foreground mb-4 sm:mb-6 tracking-tight">
             CEVI
           </h1>
         </motion.div>
@@ -97,7 +117,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15 }}
         >
-          <p className="text-2xl md:text-3xl font-serif text-gold mb-4 tracking-widest">
+          <p className="text-xl sm:text-2xl md:text-3xl font-serif text-gold mb-3 sm:mb-4 tracking-widest">
             FOOD FOR THE SENSES
           </p>
         </motion.div>
@@ -107,7 +127,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 sm:mb-12 max-w-2xl mx-auto">
             Where Flavors Tell Stories
           </p>
         </motion.div>
@@ -116,14 +136,14 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.45 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center w-full sm:w-auto px-2"
         >
           <Button
             onClick={handleReservation}
             size="lg"
-            className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-lg px-8 py-6 rounded-xl shadow-gold transition-all duration-300 hover:scale-105"
+            className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 rounded-xl shadow-gold transition-all duration-300 active:scale-95 sm:hover:scale-105 touch-manipulation"
           >
-            <Phone className="mr-2 h-5 w-5" />
+            <Phone className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
             Reserve Your Table
           </Button>
 
@@ -131,26 +151,32 @@ const Hero = () => {
             onClick={scrollToAbout}
             variant="outline"
             size="lg"
-            className="border-2 border-primary/50 text-foreground hover:bg-primary/10 hover:border-primary font-semibold text-lg px-8 py-6 rounded-xl transition-all duration-300 hover:scale-105"
+            className="w-full sm:w-auto border-2 border-primary/50 text-foreground hover:bg-primary/10 hover:border-primary font-semibold text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 rounded-xl transition-all duration-300 active:scale-95 sm:hover:scale-105 touch-manipulation"
           >
-            <Utensils className="mr-2 h-5 w-5" />
+            <Utensils className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
             View Menu
           </Button>
         </motion.div>
 
-        {/* Social proof badges */}
+        {/* Social proof badges - prominent and bold */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-16 flex flex-wrap justify-center gap-6 text-sm text-muted-foreground"
+          className="mt-10 sm:mt-16 px-4"
         >
-          <div className="flex items-center gap-2">
-            <span className="text-gold text-xl">★</span>
-            <span>4.4/5 Rated</span>
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-8">
+            <div className="flex items-center gap-2 bg-primary/10 backdrop-blur-sm px-4 sm:px-6 py-3 sm:py-4 rounded-lg border border-primary/20">
+              <span className="text-gold text-2xl sm:text-3xl">★</span>
+              <span className="text-foreground font-bold text-base sm:text-lg md:text-xl">4.4/5 Rated</span>
+            </div>
+            <div className="flex items-center gap-2 bg-primary/10 backdrop-blur-sm px-4 sm:px-6 py-3 sm:py-4 rounded-lg border border-primary/20">
+              <span className="text-foreground font-bold text-base sm:text-lg md:text-xl">992+ Happy Diners</span>
+            </div>
+            <div className="flex items-center gap-2 bg-gold/20 backdrop-blur-sm px-4 sm:px-6 py-3 sm:py-4 rounded-lg border border-gold/30">
+              <span className="text-gold font-bold text-base sm:text-lg md:text-xl text-center">No 1 in HSR for Kundapura Cuisine</span>
+            </div>
           </div>
-          <div className="border-l border-border pl-6">992+ Happy Diners</div>
-          <div className="border-l border-border pl-6">No 1 in HSR for Kundapura Cuisine</div>
         </motion.div>
       </div>
 
@@ -160,10 +186,10 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.8 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+        className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-20 text-muted-foreground hover:text-primary active:text-primary transition-colors cursor-pointer touch-manipulation"
         aria-label="Scroll to About section"
       >
-        <ChevronDown className="w-8 h-8 animate-bounce" />
+        <ChevronDown className="w-7 h-7 sm:w-8 sm:h-8 animate-bounce" />
       </motion.button>
     </section>
   );
