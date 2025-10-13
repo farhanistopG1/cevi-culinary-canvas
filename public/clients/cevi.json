@@ -1,0 +1,85 @@
+{
+  "id": "cevi",
+  "name": "CEVI",
+  "tagline": "FOOD FOR THE SENSES",
+  "description": "Where Flavors Tell Stories",
+  "phone": "+919901560088",
+  "email": "info@cevi.in",
+  "address": {
+    "street": "1508, 19th Main, Sector-1",
+    "area": "HSR Layout",
+    "city": "Bangalore",
+    "pincode": "560102"
+  },
+  "cuisines": [
+    "North Indian",
+    "Coastal",
+    "Bengali",
+    "Continental",
+    "Kundapura"
+  ],
+  "hours": {
+    "lunch": "11:00 AM - 3:30 PM",
+    "dinner": "6:30 PM - 10:30 PM"
+  },
+  "rating": {
+    "score": 4.4,
+    "totalReviews": 992,
+    "badge": "No 1 in HSR for Kundapura Cuisine"
+  },
+  "highlights": [
+    "4.4/5 Rated",
+    "992+ Happy Diners",
+    "No 1 in HSR for Kundapura Cuisine"
+  ],
+  "signatureDishes": [
+    {
+      "name": "Kundapura Sukha Paneer",
+      "description": "Coastal style dry paneer preparation with authentic spices"
+    },
+    {
+      "name": "Stuffed Tangdi Kebab",
+      "description": "Juicy chicken drumsticks stuffed with aromatic herbs"
+    },
+    {
+      "name": "Chicken 65 Neer Dosa with Ghee Roast",
+      "description": "Spicy chicken served with delicate rice crepes"
+    },
+    {
+      "name": "Cheese Chilli Cigar Rolls",
+      "description": "Crispy cheese rolls with a spicy kick"
+    },
+    {
+      "name": "Patrani Machhi",
+      "description": "Fish wrapped in banana leaves with green chutney"
+    },
+    {
+      "name": "Bengali Fish Cutlet",
+      "description": "Traditional Bengali style fish cutlets"
+    }
+  ],
+  "philosophy": "Food for the Senses isn't just our tagline—it's our promise. Every dish is designed to create a multisensory experience, from the aromatic spices to the visual presentation, engaging all your senses in a symphony of flavors.",
+  "experience": "Step into our warm, brick-accented space where subtle lighting creates an intimate atmosphere. Our modern casual setting perfectly complements the traditional flavors we serve, making CEVI the ideal destination for both special celebrations and casual dining.",
+  "theme": {
+    "primaryColor": "#D4AF37",
+    "secondaryColor": "#8B7355",
+    "accentColor": "#C9A961",
+    "backgroundColor": "#0A0A0A"
+  },
+  "images": {
+    "hero": "/clients/cevi/hero.jpg",
+    "gallery": [
+      "/clients/cevi/grilled-kebab-platter.jpg",
+      "/clients/cevi/red-tandoori-dish.jpg",
+      "/clients/cevi/green-cheese-kebabs.jpg",
+      "/clients/cevi/restaurant-exterior.jpg"
+    ]
+  },
+  "tags": [
+    "Multi-Cuisine",
+    "Kundapura Specialist",
+    "Casual Dining",
+    "Romantic",
+    "Special Occasions"
+  ]
+}

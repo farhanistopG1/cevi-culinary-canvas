@@ -1,0 +1,98 @@
+{
+  "id": "coal-spark",
+  "name": "Coal Spark",
+  "tagline": "Legendary Barbeque Experience",
+  "description": "Where Smoky Flavors Meet Indo-Arabian Excellence",
+  "phone": "+919743036444",
+  "email": "info@coalspark.in",
+  "address": {
+    "street": "At 1567, Ground Floor, NGR Complex, 27th Main, BTM Layout",
+    "area": "HSR Layout",
+    "city": "Bangalore",
+    "pincode": "560102"
+  },
+  "cuisines": [
+    "North Indian",
+    "Seafood",
+    "BBQ",
+    "Chinese",
+    "Mughlai",
+    "Arabian",
+    "Mandi",
+    "Biryani"
+  ],
+  "hours": {
+    "lunch": "12:00 PM - 3:30 PM",
+    "dinner": "6:30 PM - 10:30 PM"
+  },
+  "rating": {
+    "score": 4.5,
+    "totalReviews": 1135,
+    "deliveryRatings": 7434
+  },
+  "highlights": [
+    "Legendary BBQ Platter",
+    "Mutton Raan Mandi",
+    "Smoky Indo-Arabian Specialties"
+  ],
+  "signatureDishes": [
+    {
+      "name": "BBQ Platter",
+      "description": "Smoky, spicy, and grilled to perfection - our signature barbeque platter served with love"
+    },
+    {
+      "name": "Mutton Raan Mandi",
+      "description": "Tender mutton served with unlimited rice, excellent Mandi preparation"
+    },
+    {
+      "name": "Chicken Kizhi Parotta",
+      "description": "Flaky layered parotta with succulent chicken"
+    },
+    {
+      "name": "Chicken Fried Rice",
+      "description": "Best fried rice in Bangalore with basmati rice"
+    },
+    {
+      "name": "Tandoori Chicken",
+      "description": "Marinated and grilled to smoky perfection"
+    },
+    {
+      "name": "Falooda",
+      "description": "Traditional sweet rose-flavored dessert drink"
+    }
+  ],
+  "philosophy": "At Coal Spark, we believe in creating legendary barbeque experiences. Every dish is grilled to perfection with a perfect blend of smoky, spicy flavors and Indo-Arabian excellence. Our coals spark up memories that last forever.",
+  "experience": "Step into our cozy casual dining space where the aroma of freshly grilled meats and spices fills the air. Our warm ambiance and friendly staff create the perfect setting for family gatherings and special celebrations. Generous portions and unbeatable value make Coal Spark your go-to destination.",
+  "theme": {
+    "primaryColor": "#FF6B35",
+    "secondaryColor": "#F7931E",
+    "accentColor": "#C1440E",
+    "backgroundColor": "#1A1A1A"
+  },
+  "socialMedia": {
+    "instagram": "coalspark_india",
+    "facebook": "coalsparkrestaurant"
+  },
+  "images": {
+    "hero": "/clients/coal-spark/hero.jpg",
+    "gallery": [
+      "/clients/coal-spark/bbq-platter.jpg",
+      "/clients/coal-spark/mandi.jpg",
+      "/clients/coal-spark/exterior.jpg",
+      "/clients/coal-spark/interior.jpg"
+    ]
+  },
+  "specialOffers": [
+    "IPL Special: Win 2 tickets for every match in Bangalore",
+    "Iftar Special: Exclusive party menu available",
+    "Complimentary drinks with BBQ Platter"
+  ],
+  "tags": [
+    "BBQ Specialist",
+    "Casual Dining",
+    "Family Friendly",
+    "Must Try",
+    "Great Value",
+    "Generous Portions"
+  ]
+}

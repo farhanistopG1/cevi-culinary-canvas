@@ -3,7 +3,11 @@ import { Phone, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "motion/react";
 
-const FloatingCTA = () => {
+interface FloatingCTAProps {
+  phone?: string;
+}
+
+const FloatingCTA = ({ phone = "+919901560088" }: FloatingCTAProps) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -21,11 +25,12 @@ const FloatingCTA = () => {
   }, []);
 
   const handleCall = () => {
-    window.location.href = "tel:+919901560088";
+    window.location.href = `tel:${phone}`;
   };
 
   const handleWhatsApp = () => {
-    window.open("https://wa.me/919901560088", "_blank");
+    const phoneNumber = phone.replace(/\+/g, '');
+    window.open(`https://wa.me/${phoneNumber}`, "_blank");
   };
 
   return (
