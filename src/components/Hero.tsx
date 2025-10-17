@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { useEffect, useState } from "react";
 import { Phone, Utensils, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Floating, { FloatingElement } from "@/components/parallax-floating";
@@ -9,6 +10,37 @@ import greenCheeseKebabs from "@/assets/green-cheese-kebabs.png";
 import restaurantExteriorEvening from "@/assets/restaurant-exterior-evening.png";
 
 const Hero = () => {
+  const [heroData, setHeroData] = useState({
+    title: "CEVI",
+    subtitle: "FOOD FOR THE SENSES",
+    tagline: "Where Flavors Tell Stories"
+  });
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const client = params.get('client');
+    
+    if (client) {
+      fetch(`/clients/${client}.json`)
+        .then(res => {
+          if (!res.ok) throw new Error('Client data not found');
+          return res.json();
+        })
+        .then(data => {
+          if (data.hero) {
+            setHeroData({
+              title: data.hero.title || "CEVI",
+              subtitle: data.hero.subtitle || "FOOD FOR THE SENSES",
+              tagline: data.hero.tagline || "Where Flavors Tell Stories"
+            });
+          }
+        })
+        .catch(err => {
+          console.log('Using default CEVI content:', err.message);
+        });
+    }
+  }, []);
+
   const handleReservation = () => {
     window.location.href = "tel:+919901560088";
   };
@@ -22,7 +54,7 @@ const Hero = () => {
       {/* Grain overlay */}
       <div className="grain-overlay" />
 
-      {/* Parallax floating images */}
+      {/* Parallax floating images - UNCHANGED */}
       <Floating sensitivity={-1} easingFactor={0.05} className="z-0">
         <FloatingElement depth={0.5} className="top-[10%] left-[5%] w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 opacity-70">
           <motion.img
@@ -80,7 +112,7 @@ const Hero = () => {
         </FloatingElement>
       </Floating>
 
-      {/* Hero content */}
+      {/* Hero content - DYNAMIC */}
       <div className="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -88,7 +120,7 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-5xl sm:text-7xl md:text-9xl font-serif font-bold text-foreground mb-4 sm:mb-6 tracking-tight">
-            CEVI
+            {heroData.title}
           </h1>
         </motion.div>
 
@@ -98,7 +130,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.15 }}
         >
           <p className="text-xl sm:text-2xl md:text-3xl font-serif text-gold mb-3 sm:mb-4 tracking-widest">
-            FOOD FOR THE SENSES
+            {heroData.subtitle}
           </p>
         </motion.div>
 
@@ -108,7 +140,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
         >
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 sm:mb-12 max-w-2xl mx-auto">
-            Where Flavors Tell Stories
+            {heroData.tagline}
           </p>
         </motion.div>
 
@@ -138,7 +170,7 @@ const Hero = () => {
           </Button>
         </motion.div>
 
-        {/* Social proof badges */}
+        {/* Social proof badges - UNCHANGED */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -158,7 +190,7 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll indicator - UNCHANGED */}
       <motion.button
         onClick={scrollToAbout}
         initial={{ opacity: 0 }}
