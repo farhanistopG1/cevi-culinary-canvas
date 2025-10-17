@@ -7,8 +7,15 @@ import redTandooriDish from "@/assets/red-tandoori-dish.png";
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [aboutData, setAboutData] = useState({
+    title: "A Culinary Journey Through India",
+    paragraph: "At CEVI, we celebrate the rich tapestry of Indian cuisine by bringing together the finest flavors from North India, the coastal regions, Bengal, and Continental traditions. Each dish is a testament to our commitment to authenticity, crafted with traditional recipes and presented with a modern flair.",
+    philosophy: "\"Food for the Senses\" isn't just our tagline—it's our promise. Every dish is designed to create a multisensory experience, from the aromatic spices to the visual presentation, engaging all your senses in a symphony of flavors.",
+    experience: "Step into our warm, brick-accented space where subtle lighting creates an intimate atmosphere. Our modern casual setting perfectly complements the traditional flavors we serve, making CEVI the ideal destination for both special celebrations and casual dining."
+  });
 
   useEffect(() => {
+    // Scroll animation observer (UNCHANGED)
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -23,12 +30,38 @@ const About = () => {
       observer.observe(element);
     }
 
+    // NEW: Dynamic content loading
+    const params = new URLSearchParams(window.location.search);
+    const client = params.get('client');
+    
+    if (client) {
+      fetch(`/clients/${client}.json`)
+        .then(res => {
+          if (!res.ok) throw new Error('Client data not found');
+          return res.json();
+        })
+        .then(data => {
+          if (data.about) {
+            setAboutData({
+              title: data.about.title || aboutData.title,
+              paragraph: data.about.paragraph || aboutData.paragraph,
+              philosophy: data.about.philosophy || aboutData.philosophy,
+              experience: data.about.experience || aboutData.experience
+            });
+          }
+        })
+        .catch(err => {
+          console.log('Using default CEVI content:', err.message);
+          // Keep fallback values
+        });
+    }
+
     return () => {
       if (element) {
         observer.unobserve(element);
       }
     };
-  }, []);
+  }, []); // Empty dependency array - runs once on mount
 
   return (
     <section id="about" className="relative py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-b from-background to-background/95">
@@ -36,7 +69,7 @@ const About = () => {
       <div className="grain-overlay" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Section header */}
+        {/* Section header - DYNAMIC */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
@@ -44,17 +77,15 @@ const About = () => {
           className="text-center mb-12 sm:mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-foreground mb-4 sm:mb-6">
-            A Culinary Journey Through India
+            {aboutData.title}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mb-6 sm:mb-8" />
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4">
-            At CEVI, we celebrate the rich tapestry of Indian cuisine by bringing together the finest flavors from North India, 
-            the coastal regions, Bengal, and Continental traditions. Each dish is a testament to our commitment to authenticity, 
-            crafted with traditional recipes and presented with a modern flair.
+            {aboutData.paragraph}
           </p>
         </motion.div>
 
-        {/* Feature images */}
+        {/* Feature images - UNCHANGED */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={isVisible ? { opacity: 1 } : {}}
@@ -85,7 +116,7 @@ const About = () => {
 
         {/* Info cards */}
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
-          {/* Philosophy card */}
+          {/* Philosophy card - DYNAMIC */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
@@ -100,15 +131,13 @@ const About = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                  "Food for the Senses" isn't just our tagline—it's our promise. Every dish is designed to create 
-                  a multisensory experience, from the aromatic spices to the visual presentation, engaging all your senses 
-                  in a symphony of flavors.
+                  {aboutData.philosophy}
                 </p>
               </CardContent>
             </Card>
           </motion.div>
 
-          {/* Signature Dishes card */}
+          {/* Signature Dishes card - HARDCODED (restaurant-specific) */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
@@ -152,7 +181,7 @@ const About = () => {
             </Card>
           </motion.div>
 
-          {/* Experience card */}
+          {/* Experience card - DYNAMIC */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
@@ -167,16 +196,14 @@ const About = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                  Step into our warm, brick-accented space where subtle lighting creates an intimate atmosphere. 
-                  Our modern casual setting perfectly complements the traditional flavors we serve, making CEVI 
-                  the ideal destination for both special celebrations and casual dining.
+                  {aboutData.experience}
                 </p>
               </CardContent>
             </Card>
           </motion.div>
         </div>
 
-        {/* Location info */}
+        {/* Location info - HARDCODED (restaurant-specific) */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
