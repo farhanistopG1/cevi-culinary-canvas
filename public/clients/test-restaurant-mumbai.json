@@ -1,0 +1,23 @@
+{
+  "restaurantName": "Test Restaurant Mumbai",
+  "hero": {
+    "title": "Transform Test Restaurant Mumbai's Online Presence",
+    "subtitle": "Professional website analysis & optimization recommendations"
+  },
+  "analysis": {
+    "summary": "KEY ISSUES:",
+    "keyIssues": [
+      "- Missing contact information in footer",
+      "- Slow page load time (4.2s)",
+      "- Not mobile-optimized"
+    ],
+    "recommendations": [
+      "- Add contact form above footer"
+    ]
+  },
+  "cta": {
+    "primary": "Schedule Free Consultation",
+    "secondary": "View Full Report"
+  },
+  "generatedAt": "2025-10-18T02:09:21.996227"
+}
